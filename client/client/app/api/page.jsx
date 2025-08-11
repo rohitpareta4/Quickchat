@@ -81,34 +81,47 @@ export const sendsrch=async(query)=>{
    }
 }
 
-export const buddy=async({text,context})=>{
-    const groqMessage=[
-        ...context,{
-            role:'user',
-            content:text
-        }
-    ]
-    console.log("text.........",text)
-    console.log("context::::::::::::",context)
-    try {
-        const res=await axios.post(`https://api.groq.com/openai/v1/chat/completions`,{
-             model: "llama-3.1-8b-instant", // or llama-3.3-70b-versatile
-        messages: groqMessage
-        },
-         {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${apikeys}` // replace with your key
-        }
-      }
+// export const buddy=async({text,context})=>{
+//     const groqMessage=[
+//         ...context,{
+//             role:'user',
+//             content:text
+//         }
+//     ]
+//     console.log("text.........",text)
+//     console.log("context::::::::::::",context)
+//     try {
+//         const res=await axios.post(`https://api.groq.com/openai/v1/chat/completions`,{
+//              model: "llama-3.1-8b-instant", // or llama-3.3-70b-versatile
+//         messages: groqMessage
+//         },
+//          {
+//         headers: {
+//           "Content-Type": "application/json",
+//           "Authorization": `Bearer ${apikeys}` // replace with your key
+//         }
+//       }
 
-    )
-       console.log("GROQ Response >>>", res.data);
+//     )
+//        console.log("GROQ Response >>>", res.data);
+//     return res.data;
+//     } catch (error) {
+//         console.log('err',error)
+//     }
+// }
+
+
+export const buddy = async ({ text, context }) => {
+  try {
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/message/buddy`, { text, context },{withCredentials:true});
+    console.log("GROQ Response >>>", res.data);
     return res.data;
-    } catch (error) {
-        console.log('err',error)
-    }
-}
+  } catch (error) {
+    console.log("err", error);
+    throw error;
+  }
+};
+
 
 export const bothMssg=async(messages)=>{
     console.log("messages:::::::::::::::::::::::",messages)

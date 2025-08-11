@@ -8,6 +8,7 @@ import notification from "../models/usersnotification.js";
 import seenMessage from "../models/messageseen.js";
 import scheduleschema from "../models/schedulemssg.model.js";
 import { scheduleJob } from "node-schedule";
+import axios from 'axios'
 
 
 export const fetchallusers=async(req,res)=>{
@@ -282,6 +283,51 @@ else{
     console.log(error)
   }
 }
+
+
+
+
+
+
+
+export const buddy=async(req, res)=>{
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  try {
+    console.log('obtained......................................')
+    const { text, context } = req.body;
+
+    const groqMessage = [
+      ...context,
+      {
+        role: "user",
+        content: text,
+      },
+    ];
+
+    const groqRes = await axios.post(
+      "https://api.groq.com/openai/v1/chat/completions",
+      {
+        model: "llama-3.1-8b-instant",
+        messages: groqMessage,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
+        },
+      }
+    );
+    
+    res.status(200).json(groqRes.data);
+  } catch (error) {
+    console.error("GROQ API error:", error.response?.data || error.message);
+    res.status(500).json({ error: "Failed to fetch Groq response" });
+  }
+}
+
 
 
 

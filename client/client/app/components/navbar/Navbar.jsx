@@ -365,6 +365,12 @@ const Navbar = () => {
     <Notification shownotif={shownotif} setShownotif={setShownotif} />
   </div>
 
+  <div>
+    <button className='md:hidden text-gray-400 cursor-pointer' onClick={showAllusers}><AccessAlarmRoundedIcon className='text-pink-500' style={{ fontSize: '36px' }} /></button>
+    <Schedule showusers={showusers} setShowusers={setShowusers}/>
+
+  </div>
+
   {/* Hamburger Icon */}
   <button
     className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-700 hover:bg-slate-600 transition"
@@ -385,8 +391,8 @@ const Navbar = () => {
   <Notification shownotif={shownotif} setShownotif={setShownotif}/>
 
   <div>
-    <button className='bg-[pink] text-[black] hidden md:block rounded-full py-2 px-4 cursor-pointer' onClick={showAllusers}>⏰ Schedule Message</button>
-    <button className='md:hidden text-gray-400 cursor-pointer' onClick={showAllusers}><AccessAlarmRoundedIcon style={{ fontSize: '36px' }} /></button>
+    <button className='bg-pink-600 text-[white] font-semibold hidden md:block rounded-full py-2 px-4 cursor-pointer' onClick={showAllusers}>⏰ Schedule Message</button>
+    {/* <button className='md:hidden text-gray-400 cursor-pointer' onClick={showAllusers}><AccessAlarmRoundedIcon className='text-pink-500' style={{ fontSize: '36px' }} /></button> */}
     <div>
     <Schedule showusers={showusers} setShowusers={setShowusers}/>
     </div>
@@ -405,7 +411,7 @@ const Navbar = () => {
         </p>
       ) : (
         
-        <p onClick={() => router.push('/auth/profilepage')} className='text-white cursor-pointer font-bold bg-[blue] p-2 rounded-2xl'>
+        <p onClick={() => router.push('/auth/profilepage')} className='text-white cursor-pointer font-bold bg-blue-800 p-2 rounded-2xl'>
           {data?.fullname}
         </p>
        

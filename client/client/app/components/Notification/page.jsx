@@ -3,7 +3,8 @@ import { useChatstore } from "@/app/store/useChatstore"
 import { getloggeduser } from "@/app/api/page"
 import { useQuery } from "@tanstack/react-query"
 import { useEffect,useMemo, useState } from "react"
-import NotificationsIcon from '@mui/icons-material/Notifications';
+// import NotificationsIcon from '@mui/icons-material/Notifications';
+import TextsmsIcon from '@mui/icons-material/Textsms';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -97,7 +98,7 @@ const Notification=({shownotif,setShownotif})=>{
     return(
        <div className="">
             <div className="relative cursor-pointer" onClick={notif}>
-            <NotificationsIcon className="text-[yellow]" style={{ fontSize: '35px' }} />
+            <TextsmsIcon className="text-pink-600" style={{ fontSize: '35px' }} />
             {len > 0 && (
               <span className={`absolute -top-1 -right-1 bg-red-600 text-white"} text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full animate-ping-slow`}>
                 {len}

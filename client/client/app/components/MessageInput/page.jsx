@@ -130,12 +130,14 @@ const showemoji=()=>{
     if (!text.trim()) return;
     mutation.mutate({ text,selectedId:selectedUser._id });
     notifmutation.mutate({text,selectedId:selectedUser._id})
+    setText('')
   };
 
   const handleSubmitbuddy=(e)=>{
      e.preventDefault();
     if (!text.trim()) return;
     mutationbuddy.mutate({text,context});
+    setText('')
   }
 
 
