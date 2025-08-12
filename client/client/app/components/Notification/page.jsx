@@ -15,7 +15,7 @@ const Notification=({shownotif,setShownotif})=>{
         queryFn:getloggeduser
     })
 
-  const {users,getinstantData,getusersnotif,removeMssg,notifications,deleteNotif}=useChatstore()
+  const {users,getinstantData,getusersnotif,removeMssg,notifications,deleteNotif,setselecteduser}=useChatstore()
 
   // const [closebell,setClosebell]=useState(false)
 
@@ -95,6 +95,11 @@ const Notification=({shownotif,setShownotif})=>{
     }
     }
 
+    // const openuserbox=(item)=>{
+    //    console.log('...............item............',item)
+    //    setselecteduser(item)
+    // }
+
     return(
        <div className="">
             <div className="relative cursor-pointer" onClick={notif}>
@@ -106,11 +111,15 @@ const Notification=({shownotif,setShownotif})=>{
             )}
           </div>
           
-            
+            {/* bg-black/40 backdrop-blur-sm */}
+
+            {/* bg-gradient-to-br from-gray-800 to-gray-900 */}
+            {/* bg-black/60 backdrop-blur-sm */}
             
           {shownotif && (
-              <div className="fixed inset-0  z-50 flex justify-center items-center bg-black/60 backdrop-blur-sm px-4">
-                <div className="relative w-full max-w-2xl h-[400px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-2xl ring-1 ring-gray-700/50 text-white overflow-hidden animate-fadeIn">
+              <div className="fixed inset-0  z-50 flex justify-center bg-black/40 backdrop-blur-sm items-center  px-4">
+            
+                <div className="relative w-full max-w-2xl h-[400px]  rounded-3xl shadow-2xl ring-1 ring-gray-700/50 text-white overflow-hidden animate-fadeIn">
                   
                   {/* Close Button */}
                   <div className="absolute top-4 right-4 cursor-pointer text-gray-400 hover:text-white transition">
@@ -132,7 +141,7 @@ const Notification=({shownotif,setShownotif})=>{
                   const fmsssg=mssg[0]
                 const sender = usermap[Sender];
                 return (
-                  <div key={Sender} className="bg-gray-700 p-3 rounded-xl shadow flex justify-between items-start gap-4">
+                  <div key={Sender} className="bg-black/40 p-3 rounded-xl shadow flex justify-between items-start gap-4">
                     <div>
                       <p className="font-semibold text-white">
                         {sender?.fullname}

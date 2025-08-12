@@ -22,6 +22,7 @@ const Homepage=()=>{
     const {selectedUser,setselecteduser}=useChatstore()
 
     const selectinguser=(item)=>{
+      console.log('.....................hehe..................',item)
      setselecteduser(item)
      setTimeout(() => {
       setIsopen(false)
@@ -99,7 +100,7 @@ const Homepage=()=>{
 
 
 
-       <div className="grid grid-cols-20 sm:px-2 sm:mt-2 ">
+       <div className="grid grid-cols-20 md:ml-8 lg:ml-4 xl:ml-0 sm:px-2 sm:mt-2">
      
           <div className="col-span-1 text-white hidden md:block">
            <Leftsidebar setIsopen={setIsopen} isopen={isopen}/>

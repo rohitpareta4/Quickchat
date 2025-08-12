@@ -145,11 +145,11 @@ const showemoji=()=>{
 // {/* <div className="w-full px-4 py-3 bg-gray-900 border-t border-gray-700"></div> */}
 
   return (
-  <div className="w-full py-3 px-4 bg-gray-900 border-t border-gray-700">
+  <div className="w-full sm:py-3 sm:px-4 p-1 bg-gray-900 border-t border-gray-700">
   {isbuddyActive &&(
     <div className="">
 
-     <form onSubmit={handleSubmitbuddy} className="flex items-center gap-3 ">
+     <form onSubmit={handleSubmitbuddy} className="lg:flex items-center gap-3 hidden">
         <input
           type="text"
           value={text}
@@ -157,8 +157,8 @@ const showemoji=()=>{
           placeholder="Type your message..."
           className="flex-1 px-4 py-2 rounded-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
         />
-        <p className="text-white bg-[blue] hover:bg-blue-700 p-3 font-semibold rounded-full cursor-pointer">Connected</p>
-<p className="text-white bg-[blue] hover:bg-blue-700 p-3 font-semibold rounded-full cursor-pointer" onClick={disconnectwithbuddy}>{disconnect===true?"disconnecting...":"Disconnect with buddy"}</p>
+        {/* <p className="text-white bg-[blue] hover:bg-blue-700 p-3 font-semibold rounded-full cursor-pointer">Connected</p> */}
+        <p className="text-white bg-[blue] hover:bg-blue-700 p-3 font-semibold rounded-full cursor-pointer" onClick={disconnectwithbuddy}>{disconnect===true?"disconnecting...":"Disconnect with buddy"}</p>
         <button
           type="submit"
           className="p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white transition"
@@ -168,27 +168,35 @@ const showemoji=()=>{
       </form>
 
 
-       <form onSubmit={handleSubmitbuddy} className="flex flex-col items-center gap-3 sm:hidden">
-        <div>
+       <form onSubmit={handleSubmitbuddy} className="flex flex-col items-center gap-3 lg:hidden">
+        <div className="w-full flex sm:gap-2 gap-1">
         <input
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Type your message..."
-          className="flex-1 px-4 py-2 rounded-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+          className="flex-1 px-4 py-2  rounded-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
         />
+
+         <button
+          type="button"
+          className="p-2  rounded-full bg-purple-600 hover:bg-purple-700 text-white transition cursor-pointer"
+          onClick={showemoji}
+        >
+          <EmojiEmotionsIcon />
+        </button>
 
         <button
           type="submit"
-          className="p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white transition"
+          className="p-2  rounded-full bg-purple-600 hover:bg-purple-700 text-white transition"
         >
           <NorthIcon />
         </button>
         </div>
-        <div>
+        <div className="flex gap-2 w-full">
 
-                <p className="text-white bg-[blue] hover:bg-blue-700 p-3 font-semibold rounded-full cursor-pointer">Connected</p>
-<p className="text-white bg-[blue] hover:bg-blue-700 p-3 font-semibold rounded-full cursor-pointer" onClick={disconnectwithbuddy}>{disconnect===true?"disconnecting...":"Disconnect with buddy"}</p>
+                {/* <p className="w-full flex justify-center p-1 items-center text-white bg-[blue] hover:bg-blue-700 sm:p-3 font-semibold rounded-full cursor-pointer">Connected</p> */}
+               <p className="w-full text-white flex justify-center  items-center  bg-[blue] hover:bg-blue-700 p-3 font-semibold rounded-full cursor-pointer" onClick={disconnectwithbuddy}>{disconnect===true?"disconnecting...":"Disconnect with buddy"}</p>
 </div>
       </form>
       
@@ -224,13 +232,13 @@ const showemoji=()=>{
 
 
       <form onSubmit={handleSubmit} className="flex flex-col  gap-3  sm:hidden">
-        <div className="flex gap-3">
+        <div className="flex gap-1">
         <input
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Type your message..."
-          className="flex-1 px-4 py-2 rounded-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+          className="w-1/3 flex-1 px-4 py-2 rounded-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
         />
          <button
           type="button"

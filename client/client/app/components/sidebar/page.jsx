@@ -378,7 +378,7 @@ const Sidebar = ({ setSrch, srch }) => {
         </AnimatePresence>
       </div>
 
-      <div className="flex-1 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 space-y-3">
+      <div className="flex-1 overflow-y-auto pr-1 md:pl-2 lg:pl-0 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 space-y-3">
         <AnimatePresence>
           {showusers &&
             users.map((item) => (
