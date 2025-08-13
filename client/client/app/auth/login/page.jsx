@@ -103,7 +103,7 @@ const login=()=>{
         </button>
 
         <p className="text-sm text-gray-400 text-center mt-4">
-          Already have an account?{' '}
+          Don’t have an account?{' '}
           <button onClick={()=>router.push('/auth/signup')} className="text-purple-400 hover:text-purple-300 underline transition-colors duration-200">
             signup
           </button>

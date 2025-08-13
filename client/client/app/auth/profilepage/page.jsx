@@ -124,15 +124,21 @@
 
 "use client";
 import React, { useState } from "react";
+
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { getloggeduser, addingbio } from "@/app/api/page";
 import { motion } from "framer-motion";
+import { socketdata } from "@/socket";
+import { logoutuser } from "@/app/api/page";
 
 const ProfilePage = () => {
   const [image, setImage] = useState('');
   const [addbio, setAddbio] = useState('');
   const [fullname, setFullName] = useState('');
   const queryClient = useQueryClient();
+
+    const {disconnectSocket}=socketdata()
+  
 
   const { data, isLoading } = useQuery({
     queryKey: ["me"],
@@ -148,6 +154,20 @@ const ProfilePage = () => {
       queryClient.invalidateQueries({ queryKey: ['me'] });
     }
   });
+
+    const mutation1 = useMutation({
+      mutationFn: logoutuser,
+      onSuccess: async() => {
+        disconnectSocket();
+       await queryClient.setQueryData(['me'],null)
+        queryClient.invalidateQueries({ queryKey: ['me'] });
+         toast.success('logout succesfully...')
+      },
+    });
+  
+    const logoutusers = () => {
+      mutation1.mutate({});
+    };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -169,13 +189,16 @@ const ProfilePage = () => {
     );
   }
 
+
+  
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] flex items-center justify-center px-2 md:py-4">
+    <div className="  flex items-center justify-center md:py-4 px-2">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full max-w-md bg-[#1e1e2f] rounded-3xl shadow-2xl border border-[#3a3a4d] p-8 text-white"
+        className="w-full max-w-md bg-[#1e1e2f] rounded-3xl shadow-2xl border border-[#3a3a4d] p-2 sm:p-8 text-white"
       >
         <form onSubmit={handleSubmit}>
           {/* Profile Picture */}
@@ -240,7 +263,7 @@ const ProfilePage = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               type="submit"
-              className="inline-flex items-center gap-2 justify-center px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-full shadow-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 justify-center px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-full shadow-lg transition-all duration-200 w-full"
             >
               {mutation.isPending ? (
                 <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -253,6 +276,12 @@ const ProfilePage = () => {
             </motion.button>
           </div>
         </form>
+         <button
+          className='bg-red-600 mt-1 w-full sm:hidden hover:bg-red-500 text-white font-medium py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md'
+          onClick={logoutusers}
+        >
+          Logout
+        </button>
       </motion.div>
     </div>
   );

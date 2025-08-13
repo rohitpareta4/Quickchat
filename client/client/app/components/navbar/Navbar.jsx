@@ -296,6 +296,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Navmobileicon from '../Navmobileicon/page';
 import Notification from '../Notification/page';
 import Schedule from '../schedule/page';
+// import LoadingScreen from '../animation/page';
 
 // import { findNotifUser } from '@/app/api/page';
 
@@ -315,7 +316,7 @@ const Navbar = () => {
   const { data,isLoading } = useQuery({
     queryKey: ['me'],
     queryFn: getloggeduser,
-  
+     retry:false
   });
 
 
@@ -336,6 +337,12 @@ const Navbar = () => {
   const showAllusers=()=>{
      setShowusers(true)
   }
+
+  // if(isLoading){
+  //   return <LoadingScreen/>
+  // }
+
+  // if(!data) return <p className='text-[white] bg-[yellow] h-60'>heyyy</p>
 
 
   // if (isLoading) return <p className='flex justify-center items-center'>
@@ -372,15 +379,28 @@ const Navbar = () => {
   </div>
 
   {/* Hamburger Icon */}
+  {!data?<div className=''>
+     <Link href="/auth/login">
+        <button className='border-2 border-indigo-400 hover:bg-indigo-400 hover:text-gray-900 text-white font-medium py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105'>
+          Login
+        </button>
+      </Link>
+  </div>:
+  <div>
   <button
     className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-700 hover:bg-slate-600 transition"
     onClick={() => setOpenhamIcon(true)}
   >
     <MenuIcon className="text-white" />
   </button>
+  </div>
+}
 
   {/* Mobile Navigation */}
+  
   <Navmobileicon setOpenhamIcon={setOpenhamIcon} openhamIcon={openhamIcon} />
+  
+
 </div>
 
 
@@ -446,7 +466,15 @@ const Navbar = () => {
   )}
 </div>
 
+
+
     </nav>
+
+
+
+
+
+
   );
 };
 

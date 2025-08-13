@@ -25,7 +25,7 @@ export const useChatstore=create((set,get)=>({
             const res=await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/message/user`,{withCredentials:true})
             set({users:res.data})
         } catch (error) {
-            toast.error(error.response.data.message)
+            toast.error(error.response?.data?.message)
         }
     },
 

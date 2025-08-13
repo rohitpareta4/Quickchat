@@ -10,10 +10,12 @@ import ProfilePage from "@/app/auth/profilepage/page";
   
 const Navmobileicon=({openhamIcon,setOpenhamIcon})=>{
 
-//     const {data,isLoading}=useQuery({
-//         queryKey:['me'],
-//         queryFn:getloggeduser
-//     })
+
+
+    // const {data,isLoading}=useQuery({
+    //     queryKey:['me'],
+    //     queryFn:getloggeduser
+    // })
 
 //     const router=useRouter()
 
@@ -34,6 +36,8 @@ const Navmobileicon=({openhamIcon,setOpenhamIcon})=>{
    
     
     return(
+      <>
+    
         <div>
                    <Drawer
   anchor="right"
@@ -78,6 +82,8 @@ const Navmobileicon=({openhamIcon,setOpenhamIcon})=>{
   </Box>
 </Drawer>
         </div>
+
+        </>
     )
 }
 export default Navmobileicon

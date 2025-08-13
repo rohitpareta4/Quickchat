@@ -95,10 +95,10 @@ const Notification=({shownotif,setShownotif})=>{
     }
     }
 
-    // const openuserbox=(item)=>{
-    //    console.log('...............item............',item)
-    //    setselecteduser(item)
-    // }
+    const openuserbox=(item)=>{
+       console.log('...............item............',item)
+       setselecteduser(item)
+    }
 
     return(
        <div className="">
@@ -141,7 +141,7 @@ const Notification=({shownotif,setShownotif})=>{
                   const fmsssg=mssg[0]
                 const sender = usermap[Sender];
                 return (
-                  <div key={Sender} className="bg-black/40 p-3 rounded-xl shadow flex justify-between items-start gap-4">
+                  <div key={Sender} onClick={()=>openuserbox(sender)} className="bg-black/40 p-3 rounded-xl shadow flex justify-between items-start gap-4">
                     <div>
                       <p className="font-semibold text-white">
                         {sender?.fullname}
