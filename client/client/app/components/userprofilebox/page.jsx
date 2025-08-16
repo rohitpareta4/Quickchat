@@ -1,3 +1,4 @@
+"use client"
 import { Drawer,Button, Box, Slide, Grow } from "@mui/material";
 import { useChatstore } from "@/app/store/useChatstore";
 import CloseIcon from '@mui/icons-material/Close';
