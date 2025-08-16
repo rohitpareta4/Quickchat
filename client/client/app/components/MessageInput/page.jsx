@@ -1,3 +1,4 @@
+"use client"
 import { useState,useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 // import SendIcon from '@mui/icons-material/Send';

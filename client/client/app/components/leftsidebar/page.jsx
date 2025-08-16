@@ -44,7 +44,7 @@
 // }
 // export default leftsidebar
 
-
+"use client"
 import { useQuery } from "@tanstack/react-query";
 import { getloggeduser } from "@/app/api/page";
 import GroupIcon from '@mui/icons-material/Group'; 
