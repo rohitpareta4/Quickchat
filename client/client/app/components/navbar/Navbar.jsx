@@ -297,6 +297,7 @@ import Navmobileicon from '../Navmobileicon/page';
 import Notification from '../Notification/page';
 import Schedule from '../schedule/page';
 // import LoadingScreen from '../animation/page';
+// import Image from 'next/image';
 
 // import { findNotifUser } from '@/app/api/page';
 
@@ -316,7 +317,6 @@ const Navbar = () => {
   const { data,isLoading } = useQuery({
     queryKey: ['me'],
     queryFn: getloggeduser,
-     retry:false
   });
 
 
@@ -359,6 +359,10 @@ const Navbar = () => {
   //         BAATCHEET
   //       </h2>
 
+
+
+  // <img className='h-20 sm:h-16 mt-2 sm:mt-0 w-auto object-contain transform scale-150 pl-2 sm:pl-0' src="/chatlogo.png"/>
+
   return (
 
     // bg-gray-800 ml-20 w-[calc(100%-80px)] flex items-center justify-between px-6 py-4 shadow-lg border-b border-gray-500 sticky top-4 z-50 rounded-2xl mx-auto  backdrop-blur-sm bg-opacity-90
@@ -368,8 +372,7 @@ const Navbar = () => {
     <nav className='bg-gray-800 md:ml-20 mx-2 my-2 sm:mx-0 sm:my-0 h-20  md:w-[calc(100%-80px)] flex items-center justify-between p-2 sm:px-6 sm:py-4 shadow-lg border-2 border-gray-700 shadow-lg sticky top-2 sm:top-4 z-100 rounded-bl-2xl rounded-br-2xl'>
       <div className='flex items-center'>
         <h2 className='text-white text-base sm:text-2xl font-bold tracking-wide transform hover:scale-105 transition-transform duration-300 cursor-pointer' onClick={()=>router.push('/')}>
-          {/* BAATCHEET */}
-          <img className='h-20 sm:h-16 mt-2 sm:mt-0 w-auto object-contain transform scale-150 pl-2 sm:pl-0' src="/chatlogo.png"/>
+          BAATCHEET
         </h2>
         {/* <span className='text-indigo-400 text-sm ml-1 hidden sm:block'>✉️</span> */}
       </div>

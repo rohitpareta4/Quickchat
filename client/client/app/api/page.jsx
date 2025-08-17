@@ -3,7 +3,12 @@ import { AirportShuttle } from "@mui/icons-material";
 import axios from "axios"
 // import { headers } from "next/headers";
 
-const apikeys= process.env.GROQ_API_KEY
+// const apikeys= process.env.GROQ_API_KEY
+
+// const apiUrl="https://schedly-qqh2.onrender.com";
+
+// process.env.NEXT_PUBLIC_API_URL
+
 
 export const signupform=async(formdata)=>{
     console.log("formdata",formdata)
