@@ -371,9 +371,9 @@ const Navbar = () => {
  
     <nav className='bg-gray-800 md:ml-20 mx-2 my-2 sm:mx-0 sm:my-0 h-20  md:w-[calc(100%-80px)] flex items-center justify-between p-2 sm:px-6 sm:py-4 shadow-lg border-2 border-gray-700 shadow-lg sticky top-2 sm:top-4 z-100 rounded-bl-2xl rounded-br-2xl'>
       <div className='flex items-center'>
-        {/* <h2 className='text-white text-base sm:text-2xl font-bold tracking-wide transform hover:scale-105 transition-transform duration-300 cursor-pointer' onClick={()=>router.push('/')}> */}
-          BAATCHEET
-        {/* </h2> */}
+        <h2 className='text-white text-base sm:text-2xl font-bold tracking-wide transform hover:scale-105 transition-transform duration-300 cursor-pointer' onClick={()=>router.push('/')}>
+          <img className='h-20 sm:h-16 mt-2 sm:mt-0 w-auto object-contain transform scale-150 pl-2 sm:pl-0' src="/chatlogo.png"/>
+        </h2>
         {/* <span className='text-indigo-400 text-sm ml-1 hidden sm:block'>✉️</span> */}
       </div>
 
