@@ -10,9 +10,13 @@ onlineusers:[],
 socket:null,
 // newMssg:[],
 
+
+// http://localhost:5000
+
+
 connectsocket:(token,userid)=>{
     console.log("token type is",typeof(token))
-    _socket=io("http://localhost:5000",{
+    _socket=io("process.env.NEXT_PUBLIC_API_URL",{
         auth:{token},
         query:{userid},
         withCredentials:true
