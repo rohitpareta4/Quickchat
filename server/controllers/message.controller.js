@@ -32,8 +32,8 @@ const BOT_ID = new mongoose.Types.ObjectId("000000000000000000000001");
        
            const sendMssg=await Botmessage.find({
       $or:[
-        {senderId:myId,ContextId:usertochat},
-        {senderId:BOT_ID,ContextId:usertochat},
+        {senderId:myId,recieverId:BOT_ID,ContextId:usertochat},
+        {senderId:BOT_ID,recieverId:myId,ContextId:usertochat},
       ]
     })
        
