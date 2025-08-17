@@ -16,7 +16,7 @@ socket:null,
 
 connectsocket:(token,userid)=>{
     console.log("token type is",typeof(token))
-    _socket=io("process.env.NEXT_PUBLIC_API_URL",{
+    _socket=io(process.env.NEXT_PUBLIC_API_URL,{
         auth:{token},
         query:{userid},
         withCredentials:true
