@@ -26,7 +26,7 @@ dotenv.config(); // Load environment variables
 
 // Middleware
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: ["http://localhost:3000","http://schedly-xi.vercel.app/"],
   methods: ["GET", "POST" ,'PUT', 'DELETE', 'PATCH'],
   credentials: true
 }));
