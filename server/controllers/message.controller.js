@@ -83,6 +83,8 @@ export const sendMessage=async(req,res)=>{
         console.log(recieversocketId,senderId)
         if(recieversocketId){
             io.to(recieversocketId).emit("sendingmssg",newMessage)
+            io.to(recieversocketId).emit("sendNotification",newMessage)
+
              io.to(recieversocketId).emit("seenMssg",{
                 senderId,recieverId,isSeen:true
              })

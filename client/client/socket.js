@@ -19,7 +19,8 @@ connectsocket:(token,userid)=>{
     _socket=io(process.env.NEXT_PUBLIC_API_URL,{
         auth:{token},
         query:{userid},
-        withCredentials:true
+        withCredentials:true,
+        transports: ["websocket"]
     })
     console.log("socketinfo",_socket)
    _socket.on("connect", () => {

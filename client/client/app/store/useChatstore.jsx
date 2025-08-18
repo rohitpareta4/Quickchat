@@ -50,7 +50,7 @@ export const useChatstore=create((set,get)=>({
 
        try {
           const res=await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/message/send/${mssgdata.selectedId}`,mssgdata,{withCredentials:true})
-          set({messages:[...messages,res.data]})
+          // set({messages:[...messages,res.data]})
           
 
           console.log("msssgdata%%%%%%%%%%%%%%%",res.data)
@@ -60,12 +60,13 @@ export const useChatstore=create((set,get)=>({
     },
 
     sendnotif:async(notifdata)=>{
-        const {notifications}=get()
+        // const {notifications}=get()
         console.log("notifdata.......",notifdata)
         console.log("notifdata.............",notifdata)
        try {
         const res=await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/message/notif/${notifdata.selectedId}`,notifdata,{withCredentials:true})
-        set({notifications:[...notifications,res.data]})
+        // set({notifications:[...notifications,res.data]})
+        return res.data
        } catch (error) {
             toast.error(error.response.data.message)
        }
