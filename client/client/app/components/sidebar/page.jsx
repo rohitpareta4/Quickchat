@@ -245,6 +245,9 @@ const Sidebar = ({ setSrch, srch }) => {
   }
   let allonline = users.filter((user) => newonlineUsers.has(user._id));
 
+
+  console.log("...............Allonlineusers.............",allonline)
+
   const { data: srchdata } = useQuery({
     queryKey: ['srch', srch],
     queryFn: () => sendsrch(srch),

@@ -23,9 +23,6 @@ const Notification=({shownotif,setShownotif})=>{
     setShownotif(false)
   }
 
-
-
-
   
     useEffect(() => {
     if (data?._id) {
@@ -53,6 +50,8 @@ const Notification=({shownotif,setShownotif})=>{
       const notif = notifications[i];
   
       // ✅ Only process notifications for currentUser
+
+      console.log("...........notif...........",notif.recieverId,"............notif1...........",data?._id)
       if (notif.recieverId !== data?._id) continue;
   
       const senderId = notif.senderId;
