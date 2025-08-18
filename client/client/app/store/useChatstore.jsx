@@ -50,7 +50,7 @@ export const useChatstore=create((set,get)=>({
 
        try {
           const res=await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/message/send/${mssgdata.selectedId}`,mssgdata,{withCredentials:true})
-          // set({messages:[...messages,res.data]})
+          set({messages:[...messages,res.data]})
           
 
           console.log("msssgdata%%%%%%%%%%%%%%%",res.data)
