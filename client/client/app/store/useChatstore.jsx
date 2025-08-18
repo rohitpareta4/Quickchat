@@ -175,7 +175,7 @@ window.addEventListener('click', () => {
        const socket=socketdata.getState().socket
        if (!socket) return;
        socket.off("sendingmssg")
-       socket.off("sendNotification")
+      //  socket.off("sendNotification")
     }
 
 }))
