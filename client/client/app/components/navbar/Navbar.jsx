@@ -124,7 +124,7 @@ const Navbar = () => {
 
 
 
-      <div className='sm:flex items-center space-x-4 hidden'>
+      <div className='md:flex items-center space-x-4 hidden'>
   {/* Notification Bell */}
   <Notification shownotif={shownotif} setShownotif={setShownotif}/>
 
