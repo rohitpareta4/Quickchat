@@ -43,11 +43,11 @@ export const useChatstore=create((set,get)=>({
        console.log("selecteduserId........................",selectedUser)
        console.log("selecteduserId#######################",selectedUser._id)
           // set({messages:mssgdata})
-          set({ messages: [...messages, { ...mssgdata, isPending: true }] });
+          // set({ messages: [...messages, { ...mssgdata, isPending: true }] });
 
        try {
           const res=await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/message/send/${mssgdata.selectedId}`,mssgdata,{withCredentials:true})
-          // set({messages:[...messages,res.data]})
+          set({messages:[...messages,res.data]})
           
 
           console.log("msssgdata%%%%%%%%%%%%%%%",res.data)
@@ -157,14 +157,28 @@ window.addEventListener('click', () => {
   })
 
   // ✅ Only listen for messages if selectedUser is available
+  // if (selectedUser) {
+  //   socket.on("sendingmssg", (data) => {
+  //     console.log("💬 New message via socket:", data);
+  //     set((state) => ({
+  //       messages: [...state.messages, data],
+  //     }));
+  //   });
+  // }
+
+
   if (selectedUser) {
-    socket.on("sendingmssg", (data) => {
-      console.log("💬 New message via socket:", data);
-      set((state) => ({
-        messages: [...state.messages, data],
-      }));
+  socket.off("sendingmssg"); // 🟢 remove old listener
+  socket.on("sendingmssg", (data) => {
+    console.log("💬 New message via socket:", data);
+    set((state) => {
+      // avoid duplicates if already exists
+      if (state.messages.some((msg) => msg._id === data._id)) return state;
+      return { messages: [...state.messages, data] };
     });
-  }
+  });
+}
+
 },
 
     
