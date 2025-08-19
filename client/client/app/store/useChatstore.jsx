@@ -14,11 +14,6 @@ export const useChatstore=create((set,get)=>({
     type:false,
 
 
-    
-
-
-
-
     getusers:async()=>{
         set({isUserLoading:true});
         try {
@@ -50,7 +45,7 @@ export const useChatstore=create((set,get)=>({
 
        try {
           const res=await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/message/send/${mssgdata.selectedId}`,mssgdata,{withCredentials:true})
-          set({messages:[...messages,res.data]})
+          // set({messages:[...messages,res.data]})
           
 
           console.log("msssgdata%%%%%%%%%%%%%%%",res.data)
@@ -103,7 +98,7 @@ export const useChatstore=create((set,get)=>({
             const res=await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/message/seen/${id}`,{},{withCredentials:true})
             set({seen:[...seen,res.data]})
             return res.data
-            console.log("seenBy_________________________________..................",res.data)
+            console.log("seenBy_____________________________..................",res.data)
         } catch (error) {
             console.log(error)
         }
