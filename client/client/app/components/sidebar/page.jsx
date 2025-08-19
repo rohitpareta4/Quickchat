@@ -368,7 +368,7 @@ const Sidebar = ({ setSrch, srch }) => {
                   <div className="flex items-center gap-2">
                     <img
                       className="h-8 w-8 rounded-full object-cover border-2 border-purple-400"
-                      src={item.profilepic ? `http://localhost:5000/images/uploads/${item.profilepic}` : defaultProfilePic}
+                      src={item.profilepic ? `${process.env.NEXT_PUBLIC_API_URL}/images/uploads/${item.profilepic}` : defaultProfilePic}
                       alt="Profile"
                     />
                     <p className="text-white truncate">{item.fullname}</p>
@@ -406,7 +406,7 @@ const Sidebar = ({ setSrch, srch }) => {
                     className="h-10 w-10 rounded-full object-cover border-2 border-purple-400 shadow-sm"
                     src={
                       item.profilepic
-                        ? `http://localhost:5000/images/uploads/${item.profilepic}`
+                        ? `${process.env.NEXT_PUBLIC_API_URL}/images/uploads/${item.profilepic}`
                         : defaultProfilePic
                     }
                     alt="Profile"
@@ -451,7 +451,7 @@ const Sidebar = ({ setSrch, srch }) => {
                     className="h-10 w-10 rounded-full object-cover border-2 border-purple-400 shadow-sm"
                     src={
                       item.profilepic
-                        ? `http://localhost:5000/images/uploads/${item.profilepic}`
+                        ? `${process.env.NEXT_PUBLIC_API_URL}/images/uploads/${item.profilepic}`
                         : defaultProfilePic
                     }
                     alt="Profile"
@@ -483,7 +483,7 @@ const Sidebar = ({ setSrch, srch }) => {
                 <div className="relative">
                   <img
                     className="h-10 w-10 rounded-full object-cover border-2 border-purple-400 shadow-sm"
-                    src={it.profilepic ? `http://localhost:5000/images/uploads/${it.profilepic}` : defaultProfilePic}
+                    src={it.profilepic ? `${process.env.NEXT_PUBLIC_API_URL}/images/uploads/${it.profilepic}` : defaultProfilePic}
                     alt="Profile"
                   />
                   <div className="absolute bottom-0 right-0 h-3 w-3 bg-green-500 rounded-full border-2 border-gray-800"></div>
